@@ -1,17 +1,23 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
+    <ion-title color="primary" background-color="primary">
       Tab 2
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <div><img src="assets/img/photo.jpg" /></div>
+      </ion-col>
+      <ion-col>
+        <div>Prénom:<strong>Moussa</strong><br>
+          Nom:<strong>CISSOKO</strong><br></div>
+      </ion-col>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+    </ion-row>
+
+  </ion-grid>
 </ion-content>

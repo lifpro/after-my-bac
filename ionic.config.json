@@ -1,5 +1,7 @@
 {
   "name": "after-my-bac",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
