@@ -7,6 +7,12 @@ import { Component } from '@angular/core';
 })
 export class Tab2Page {
 
+  meschoix: { id: number, etab: string, filiere: string }[] = [
+    { "id": 1, "etab": "Technolab", "filiere": "Génie logiciel" },
+    { "id": 2, "etab": "Sup management", "filiere": "Marketing" },
+    { "id": 3, "etab": "Iam", "filiere": "Management" },
+  ];
+
   constructor() { }
   ajouter() {
 
