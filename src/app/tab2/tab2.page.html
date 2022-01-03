@@ -7,5 +7,23 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <ion-card *ngFor="let c of meschoix">
+    <ion-card-header>
+      <ion-card-subtitle>Choix {{c.id}}</ion-card-subtitle>
+      <ion-card-title>{{c.etab}}</ion-card-title>
+    </ion-card-header>
 
+    <ion-card-content>
+      {{c.filiere}}
+    </ion-card-content>
+    <ion-footer>
+      <ion-row>
+        <ion-col>
+          <button>
+            <div>Détails</div>
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-footer>
+  </ion-card>
 </ion-content>
