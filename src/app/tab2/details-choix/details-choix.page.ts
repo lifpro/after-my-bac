@@ -18,12 +18,13 @@ export class DetailsChoixPage implements OnInit {
 
   ngOnInit() {
     let id = this.route.snapshot.paramMap.get('id');
-    console.log('id=' + id)
-    this.findFormationById(parseInt(id));
+
+    this.findChoixById(parseInt(id));
   }
-  findFormationById(id: number) {
+  findChoixById(id: number) {
+    console.log('id=' + id)
     this.choix = this.meschoix.find(function (c) {
-      return c.id = id;
+      return c.id == id;
     });
     console.log(this.choix)
 
