@@ -6,11 +6,15 @@ const routes: Routes = [
   {
     path: '',
     component: Tab2Page,
-  }
+  },
+  {
+    path: 'details-choix/:id',
+    loadChildren: () => import('./details-choix/details-choix.module').then(m => m.DetailsChoixPageModule)
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class Tab2PageRoutingModule {}
+export class Tab2PageRoutingModule { }

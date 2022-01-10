@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title color="primary" background-color="primary">
+  <ion-toolbar color="primary">
+    <ion-title>
       Mes choix de formation
     </ion-title>
   </ion-toolbar>
@@ -19,9 +19,7 @@
     <ion-footer>
       <ion-row>
         <ion-col>
-          <button>
-            <div>Détails</div>
-          </button>
+          <div [routerLink]="'details-choix/'+c.id">Détails</div>
         </ion-col>
       </ion-row>
     </ion-footer>
