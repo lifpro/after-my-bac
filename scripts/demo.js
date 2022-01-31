@@ -6,9 +6,27 @@ var meschoix = [
     { "id": 2, "etab": "Sup management", "filiere": "Marketing" },
     { "id": 3, "etab": "Iam", "filiere": "Management" },
 ];
-var tabset = new Set([1, 1, 2, 2, 3, 'tata', 4, 5, 5, 6]);
+var politiciens = [
+    { 'prenom': 'Emanuel', 'nom': 'MACRON', 'age': 40 },
+    { 'prenom': 'Edouar', 'nom': 'PHILIPPE', 'age': 47 },
+    { 'prenom': 'Bruno', 'nom': 'LE MAIRE', 'age': 49 },
+    { 'prenom': 'Verginie', 'nom': 'CALMELS', 'age': 47 },
+    { 'prenom': 'Alain', 'nom': 'JUPEE', 'age': 72 }
+];
+var nom_pol = [];
+// for (let p of politiciens) [
+//     nom_pol.push(p.prenom.toUpperCase())
+// ]
+// politiciens.forEach(function (p) {
+//     nom_pol.push(p.prenom.toUpperCase())
+// });
+nom_pol = politiciens.map(function (p, i, a) {
+    return p.prenom.toUpperCase();
+});
+console.table(nom_pol);
+//const tabset = new Set([1, 1, 2, 2, 3, 'tata', 4, 5, 5, 6]);
 // console.table(tabset);
-console.log(tabset.has(50));
+// console.log(tabset.has(50));
 // for (let c in meschoix) {
 //     console.log(meschoix[c].etab);
 // }
