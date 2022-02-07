@@ -14,16 +14,23 @@ var politiciens = [
     { 'prenom': 'Alain', 'nom': 'JUPEE', 'age': 72 }
 ];
 var nom_pol = [];
-// for (let p of politiciens) [
+// for (let p of politiciens) {
 //     nom_pol.push(p.prenom.toUpperCase())
-// ]
+// }
 // politiciens.forEach(function (p) {
 //     nom_pol.push(p.prenom.toUpperCase())
 // });
-nom_pol = politiciens.map(function (p, i, a) {
-    return p.prenom.toUpperCase();
-});
-console.table(nom_pol);
+// nom_pol = politiciens.map(function (p, i, a) {
+//     return p.prenom.toUpperCase()
+// });
+var politicien_U50 = [];
+// for (let p of politiciens) {
+//     if (p.age <= 50) {
+//         politicien_U50.push(p)
+//     }
+// }
+politicien_U50 = politiciens.filter(function (p) { return p.age <= 50; });
+console.table(politicien_U50);
 //const tabset = new Set([1, 1, 2, 2, 3, 'tata', 4, 5, 5, 6]);
 // console.table(tabset);
 // console.log(tabset.has(50));
