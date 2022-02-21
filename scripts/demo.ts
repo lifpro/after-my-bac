@@ -28,14 +28,22 @@ let nom_pol = [];
 // nom_pol = politiciens.map(function (p, i, a) {
 //     return p.prenom.toUpperCase()
 // });
-let politicien_U50 = []
+let politicien_U50;
 // for (let p of politiciens) {
 //     if (p.age <= 50) {
 //         politicien_U50.push(p)
 //     }
 
 // }
-politicien_U50 = politiciens.filter((p) => p.age <= 50);
+politicien_U50 = politiciens.find((p) => p.age <= 50);
+// let total = 10;
+// politicien_U50.forEach(function (p) {
+//     total += p.age;
+// });
+// let total2 = politicien_U50.reduce(function (p, c, i) {
+//     return p += c.age;
+// }, 10) / politicien_U50.length;
+// console.log('La moyenne est : ' + total2);
 console.table(politicien_U50);
 //const tabset = new Set([1, 1, 2, 2, 3, 'tata', 4, 5, 5, 6]);
 // console.table(tabset);
