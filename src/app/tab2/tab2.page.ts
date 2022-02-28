@@ -13,7 +13,11 @@ export class Tab2Page {
     { "id": 3, "etab": "Iam", "filiere": "Management" },
   ];
 
-  constructor() { }
+  constructor() {
+    this.meschoix.forEach(element => {
+
+    });
+  }
   ajouter() {
 
   }

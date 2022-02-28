@@ -7,12 +7,20 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <h2 class="ion-text-center ion-text-uppercase">Trouvez une école</h2>
+  <!-- <h2 class="ion-text-center ion-text-uppercase">Trouvez une école</h2> -->
+  <h2 [class]="titreClass">Trouvez une école</h2>
+  <ion-item>
+    <ion-label position="floating">Saisissez votre moyenne scientifique</ion-label>
+    <ion-input type="number" [(ngModel)]="moyScien"></ion-input>
+  </ion-item>
+  {{moyScien}}
   <ion-list>
+
     <ion-radio-group value="biff">
       <ion-list-header>
         <ion-label>Sexe</ion-label>
       </ion-list-header>
+
 
       <ion-item>
         <ion-label>Masculin</ion-label>
@@ -21,11 +29,12 @@
 
       <ion-item>
         <ion-label>Feminin</ion-label>
-        <ion-radio disabled="true" slot="start" value="griff"></ion-radio>
+        <ion-radio slot="start" value="griff"></ion-radio>
       </ion-item>
 
     </ion-radio-group>
 
   </ion-list>
-  <ion-button expand="block" fill="outline" routerLink="/search-result" routerDirection="root">Rechercher</ion-button>
+  <ion-button (click)="clickMe()" expand="block" fill="outline">
+    Rechercher</ion-button>
 </ion-content>

@@ -7,14 +7,15 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  {{meschoix | json}}
   <ion-card *ngFor="let c of meschoix">
     <ion-card-header>
       <ion-card-subtitle>Choix {{c.id}}</ion-card-subtitle>
-      <ion-card-title>{{c.etab}}</ion-card-title>
+      <ion-card-title>{{c.etab}} <span *ngIf="c.id==1">(Par défaut)</span></ion-card-title>
     </ion-card-header>
 
     <ion-card-content>
-      {{c.filiere}}
+      {{c.filiere | uppercase}}
     </ion-card-content>
     <ion-footer>
       <ion-row>
