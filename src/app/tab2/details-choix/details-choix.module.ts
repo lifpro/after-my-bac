@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
@@ -12,9 +12,10 @@ import { DetailsChoixPage } from './details-choix.page';
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     IonicModule,
     DetailsChoixPageRoutingModule
   ],
-  declarations: [DetailsChoixPage]
+  declarations: [DetailsChoixPage,]
 })
-export class DetailsChoixPageModule {}
+export class DetailsChoixPageModule { }
