@@ -18,6 +18,10 @@ const routes: Routes = [
   {
     path: 'search-result',
     loadChildren: () => import('./search-result/search-result.module').then( m => m.SearchResultPageModule)
+  },
+  {
+    path: 'etablissement',
+    loadChildren: () => import('./etablissement/etablissement.module').then( m => m.EtablissementPageModule)
   }
 ];
 @NgModule({

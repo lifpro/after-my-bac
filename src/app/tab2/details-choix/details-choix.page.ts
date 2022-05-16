@@ -14,6 +14,7 @@ export class DetailsChoixPage implements OnInit {
     { "id": 3, "etab": "Iam", "filiere": "Management" },
   ];
 
+  aff: boolean = false
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
