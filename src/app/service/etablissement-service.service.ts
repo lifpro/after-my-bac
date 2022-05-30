@@ -9,7 +9,7 @@ export class EtablissementServiceService {
 
   constructor(protected http: HttpClient) { }
   public getEtablissements() {
-    return this.http.get("https://jsonplaceholder.typicode.com/todos", this.httpHearder())
+    return this.http.get("https://jsonplaceholder.typicode.com/users", this.httpHearder())
       .pipe(catchError(this.handleError));
   }
 

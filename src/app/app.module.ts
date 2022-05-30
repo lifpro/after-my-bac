@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EncadreDirective } from './directive/encadre.directive';
 import { HttpClientModule } from '@angular/common/http';
+import { PipesModule } from './pipes/pipes.module';
 
 const firebaseConfig = {
   apiKey: "AIzaSyCfBo2xb0u3L126HrhZ_E9OR1M6xy5fJW8",
@@ -27,6 +28,7 @@ const firebaseConfig = {
     // AngularFireDatabaseModule,
     // AngularFireStorageModule,
     // AngularFireAuthModule,
+
     AppRoutingModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],

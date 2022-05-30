@@ -7,8 +7,28 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  {{meschoix | json}}
-  <ion-card *ngFor="let c of meschoix">
+
+  <!-- {{etabListe | json}} -->
+  <ion-card *ngFor="let c of etabListe">
+    <ion-card-header>
+      <ion-card-subtitle>Choix {{c.id}}</ion-card-subtitle>
+      <ion-card-title>{{c.name}} <span *ngIf="c.id==1">(Par défaut)</span></ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      {{c.email | uppercase}}
+    </ion-card-content>
+    <ion-footer>
+      <ion-row>
+        <ion-col>
+          <div [routerLink]="'details-choix/'+c.id">Détails</div>
+        </ion-col>
+      </ion-row>
+    </ion-footer>
+  </ion-card>
+
+
+  <!-- <ion-card *ngFor="let c of meschoix">
     <ion-card-header>
       <ion-card-subtitle>Choix {{c.id}}</ion-card-subtitle>
       <ion-card-title>{{c.etab}} <span *ngIf="c.id==1">(Par défaut)</span></ion-card-title>
@@ -24,5 +44,5 @@
         </ion-col>
       </ion-row>
     </ion-footer>
-  </ion-card>
+  </ion-card> -->
 </ion-content>

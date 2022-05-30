@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-tab1',
@@ -10,14 +11,21 @@ export class Tab1Page {
   age: number = 45;
   isOk: boolean = true;
   titreClass = "ion-text-uppercase";
-  moyScien: number = 7;
-  constructor() {
+  // moyScien: number = 0;
+  // moyLitt: number = 0;
+  myForm: FormGroup;
+  constructor(private fb: FormBuilder) {
     this.titreClass = this.titreClass + " ion-text-center";
     // console.log('titreClass=' + this.titreClass);
+    this.myForm = this.fb.group({
+      moyS: 0,
+      moyL: 0
+    })
   }
-  clickMe() {
-    this.moyScien = this.moyScien * 2;
-    console.log("Bjr, vous venez de clicker sur le bouton rechercher");
+  search() {
+    // console.log(`Moyenne scientifique est ${this.moyScien}`);
+    // console.log(`Moyenne litteraire est ${this.moyLitt}`);
+    console.log(this.myForm.value);
   }
 
 }
