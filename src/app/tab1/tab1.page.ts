@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-tab1',
@@ -18,8 +18,8 @@ export class Tab1Page {
     this.titreClass = this.titreClass + " ion-text-center";
     // console.log('titreClass=' + this.titreClass);
     this.myForm = this.fb.group({
-      moyS: 0,
-      moyL: 0
+      moyS: this.fb.control(0, [Validators.required, Validators.max(20), Validators.min(0)]),
+      moyL: this.fb.control(0)
     })
   }
   search() {

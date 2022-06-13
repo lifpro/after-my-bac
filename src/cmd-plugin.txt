@@ -1,0 +1,243 @@
+cordova plugin list
+cordova plugin remove <PLUGIN_NAME>
+
+npm install @ionic-native/core
+
+#translate library
+npm install --save @ngx-translate/core
+npm install @ngx-translate/http-loader --save
+
+#Native Audio
+ionic cordova plugin add cordova-plugin-nativeaudio
+npm install @ionic-native/native-audio
+ionic cordova plugin add cordova-plugin-streaming-media
+npm install @ionic-native/streaming-media
+
+#Camera
+ionic cordova plugin add cordova-plugin-camera
+npm install @ionic-native/camera
+
+#Google’s libphonenumber is a library that parses
+npm i google-libphonenumber
+
+#Reactive-Extensions/RxJS
+npm install rxjs
+
+#Social sharing
+ionic cordova plugin add cordova-plugin-x-socialsharing
+npm install @ionic-native/social-sharing
+
+#Email
+ionic cordova plugin add cordova-plugin-email
+npm install  @ionic-native/email-composer
+
+#SqLite
+npm install @ionic-native/sqlite @ionic-native/sqlite-porter
+ionic cordova plugin add cordova-sqlite-storage
+ionic cordova plugin add uk.co.workingedge.cordova.plugin.sqliteporter
+
+#Printer
+ionic cordova plugin add cordova-plugin-printer
+npm install --save @ionic-native/printer
+
+#Sms
+ionic cordova plugin add cordova-sms-plugin
+npm install --save @ionic-native/sms
+
+#Android permissions
+ionic cordova plugin add cordova-plugin-android-permissions
+npm install @ionic-native/android-permissions
+
+#File
+ionic cordova plugin add cordova-plugin-file
+npm install @ionic-native/file
+
+#calendar
+ionic cordova plugin add cordova-plugin-calendar
+npm install @ionic-native/calendar
+npm i --save date-fns
+
+#Storage
+npm install --save @ionic/storage
+
+#camera
+ionic cordova plugin add cordova-plugin-camera
+npm install @ionic-native/camera
+
+#file
+ionic cordova plugin add cordova-plugin-file
+npm install @ionic-native/file
+
+#media
+ionic cordova plugin add cordova-plugin-media
+npm install @ionic-native/media
+ionic cordova plugin add cordova-plugin-media-capture
+npm install @ionic-native/media-capture
+
+#Uid | https://www.freakyjolly.com/ionic-4-get-unique-device-id-other-uids-of-uuid-imei-imsi-iccid-and-mac-using-native-cordova-plugins/
+ionic cordova plugin add cordova-plugin-unique-device-id2
+npm install @ionic-native/unique-device-id
+ionic cordova plugin add cordova-plugin-uid
+npm install @ionic-native/uid
+
+#Firebase | Firebase:https://drissas.com/ionic-4-firebase/
+https://www.freakyjolly.com/ionic-4-crud-operations-using-firebase-and-firestore-database-tutorial-in-ionic-4-with-angular-7/
+https://drissas.com/ionic-todolist/
+npm install firebase @angular/fire --save
+npm install firebase  @ionic-native/firebase
+ionic cordova plugin add cordova-plugin-firebase
+ionic cordova plugin remove cordova-plugin-firebase
+ionic cordova plugin add cordova-plugin-firebasex
+cordova plugin add https://github.com/dpa99c/cordova-plugin-firebase
+
+#Firebase
+//https://firebase.google.com/docs/functions/get-started
+//https://firebase.google.com/docs/functions/write-firebase-functions
+npm install firebase-functions@latest firebase-admin@latest --save
+npm install -g firebase-tools
+npm install nodemailer
+Puis dans functions/package.json
+"dependencies": {
+    "firebase-admin": "^9.2.0",
+    "firebase-functions": "^3.11.0",
+    "nodemailer": "^6.4.16"
+  },
+
+ Check package.json under functions folder, it's complaining because it didn't find there.
+ cd  functions, puis mpn install
+
+firebase login ou firebase logout
+firebase init functions ou firebase -P denkokunafoni-55988 init
+yarn add firebase-functions nodemailer-smtp-transport cors nodemailer
+firebase deploy ou firebase deploy --only "functions:sendQuestionNotification"
+
+https://myaccount.google.com/lesssecureapps?pli=1&rapt=AEjHL4OYk75DBLukU48MPi9xckukGw_lJF6kjQ2srK_DXnw7oLn2csnbP4RYCSf6aCpPNw8c4zmtwBuf5v40Gv-YoMj1UFSRYw
+https://accounts.google.com/b/0/DisplayUnlockCaptcha
+
+Example
+https://github.com/firebase/functions-samples
+
+// https://myaccount.google.com/lesssecureapps
+// Also https://accounts.google.com/DisplayUnlockCaptcha might be helpful.
+
+there's a limit of 5 SMS per phone number per 4 hours.
+
+#Pdf | https://ionicacademy.com/create-pdf-files-ionic-pdfmake/
+ionic cordova plugin add cordova-plugin-file-opener2
+ionic cordova plugin add cordova-plugin-file 
+npm install pdfmake @ionic-native/file-opener @ionic-native/file 
+npm install html-to-pdfmake
+
+#Internet
+$ ionic cordova plugin add cordova-plugin-network-information
+$ npm install --save @ionic-native/network
+
+
+#Sqlite Db Copy
+ionic cordova plugin add cordova-plugin-dbcopy
+npm install @ionic-native/sqlite-db-copy
+
+#Device Accounts
+$ ionic cordova plugin add cordova-device-accounts
+$ npm install --save @ionic-native/device-accounts@4
+
+
+#Firebase Cloud Messaging (FCM)
+#https://www.djamware.com/post/5c6ccd1f80aca754f7a9d1ec/push-notification-using-ionic-4-and-firebase-cloud-messaging
+ionic cordova plugin add cordova-plugin-fcm-with-dependecy-updated
+npm install @ionic-native/fcm
+
+
+npm cache clean --force
+
+
+#Sms Retriever
+ionic cordova plugin add cordova-plugin-sms-retriever-manager
+npm install @ionic-native/sms-retriever
+
+
+cordova plugin add cordova-plugin-firebase-authentication --save
+npm install @ionic-native/firebase-authentication
+
+#https://www.npmjs.com/package/cordova-plugin-sms-receive
+cordova plugin add cordova-plugin-sms-receive
+
+cordova plugin list
+
+
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /{allPaths=**} {
+      allow read, write: if request.auth != null;
+    }
+  }
+}
+
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
+
+#Base64
+ionic cordova plugin add com-badrit-base64
+npm install @ionic-native/base64
+
+#Chart
+install chart.js --save
+
+#vibration
+ionic cordova plugin add cordova-plugin-vibration
+npm install @ionic-native/vibration
+
+#Date fns
+npm install date-fns --save
+npm install --save ngx-date-fns
+
+#calendar
+npm install ionic2-calendar --save
+https://medium.com/@surajair/ionic-native-sqlite-with-browser-development-6847b7f9611
+
+ionic cordova plugin add cordova-plugin-inappbrowser
+npm install @ionic-native/in-app-browser
+
+ionic cordova plugin add cordova.plugins.diagnostic
+npm install @ionic-native/diagnostic
+
+npm install moment --save
+
+#ngx-ionic-image-viewer
+npm install --save ngx-ionic-image-viewer
+
+#Photo Viewer
+ionic cordova plugin add com-sarriaroman-photoviewer
+npm install @ionic-native/photo-viewer
+
+#Base64 To Gallery
+$ ionic cordova plugin add cordova-base64-to-gallery
+$ npm install --save @ionic-native/base64-to-gallery
+
+#Local Notifications
+ionic cordova plugin add cordova-plugin-local-notification
+npm install @ionic-native/local-notifications
+
+pour les push
+https://www.youtube.com/watch?v=2r2apfNzq5o
+
+#Calendar: This plugin allows you to add events to the Calendar of the mobile device.
+#https://github.com/lokkilok/Ionic-Calendar-Plugin
+ionic cordova plugin add cordova-plugin-calendar
+npm install @ionic-native/calendar
+
+#Background Mode
+ionic cordova plugin add cordova-plugin-background-mode
+npm install @ionic-native/background-mode
+
+
+npm install @google-cloud/firestore
+
+npm i convert-firebase-timestamp

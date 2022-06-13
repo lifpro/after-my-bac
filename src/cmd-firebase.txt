@@ -1,0 +1,38 @@
+No solutions posted here worked for me. A wonderful person opened a pull request in the cordova-firebase-plugin official repo and it works.
+
+Steps I did:
+
+1 - Remove cordova-firebase-plugin with ionic cordova plugin remove cordova-plugin-firebase
+
+2 - Install: ionic cordova plugin add cordova-plugin-firebasex
+
+3 - rm -rf node_modules/ plugins/ platforms/android package-lock.json
+
+4 - ionic cordova platform add android && npm install
+android {
+    compileSdkVersion 26
+    defaultConfig {
+      ...
+        minSdkVersion 15
+        targetSdkVersion 26
+        multiDexEnabled true
+     ...
+    }
+}
+android {
+    defaultConfig {
+        versionCode cdvVersionCode ?: new BigInteger("" + privateHelpers.extractIntFromManifest("versionCode"))
+        applicationId privateHelpers.extractStringFromManifest("package")
+
+        if (cdvMinSdkVersion != null) {
+            minSdkVersion cdvMinSdkVersion
+        }
+
+        if (cdvMaxSdkVersion != null) {
+            maxSdkVersion cdvMaxSdkVersion
+        }
+
+        if(cdvTargetSdkVersion != null) {
+            targetSdkVersion cdvTargetSdkVersion
+        }
+         multiDexEnabled true

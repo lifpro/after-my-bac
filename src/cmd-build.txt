@@ -1,0 +1,46 @@
+npm install -g ionic@latest
+npm i
+ionic serve
+
+ionic cordova platform add android
+cordova platform add android@latest
+ionic cordova platform remove android
+
+ionic cordova resources
+
+#execution
+ionic cordova build android
+ionic cordova prepare android
+ionic cordova emulate android
+ionic cordova emulate android -l -c
+w --device -l --debug
+ionic cordova run android --livereload //net::ERR_CONNECTION_REFUSED (http://localhost:8080/)
+ionic serve --lab
+ionic cordova run browser
+native-run android --app c:/apk/app-debug.apk
+
+#GitHub
+https://github.com/lifpro/smart-caisse.git
+
+
+
+
+#Firebase
+//https://firebase.google.com/docs/functions/get-started
+//https://firebase.google.com/docs/functions/write-firebase-functions
+npm install firebase-functions@latest firebase-admin@latest --save
+npm install -g firebase-tools
+npm install nodemailer
+npm install nodemailer --save
+firebase login
+firebase init functions
+firebase deploy
+
+// https://myaccount.google.com/lesssecureapps
+// Also https://accounts.google.com/DisplayUnlockCaptcha might be helpful.
+
+
+
+
+
+ionic g page otp

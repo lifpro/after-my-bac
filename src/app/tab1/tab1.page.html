@@ -13,12 +13,16 @@
     <ion-item>
       <ion-label position="floating">Saisissez votre moyenne scientifique</ion-label>
       <ion-input type="number" formControlName="moyS"></ion-input>
+      <div style="color: red;" *ngIf="myForm.controls.moyS.touched && myForm.controls.moyS.hasError('required')">Moyenne
+        scientifique est requise</div>
+      <div style="color: red;" *ngIf="myForm.controls.moyS.hasError('max') || myForm.controls.moyS.hasError('min')">
+        Moyenne scientifique incorrect</div>
     </ion-item>
     <ion-item>
       <ion-label position="floating">Saisissez votre moyenne litteraire</ion-label>
-      <ion-input fo type="number" formControlName="moyL"></ion-input>
+      <ion-input type="number" formControlName="moyL"></ion-input>
     </ion-item>
-    <ion-button type="submit" expand="block" fill="outline">
+    <ion-button [disabled]="!myForm.valid" (click)="search()" expand="block" fill="outline">
       Rechercher</ion-button>
   </form>
 </ion-content>

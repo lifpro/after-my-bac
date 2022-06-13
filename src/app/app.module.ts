@@ -9,6 +9,8 @@ import { AppComponent } from './app.component';
 import { EncadreDirective } from './directive/encadre.directive';
 import { HttpClientModule } from '@angular/common/http';
 import { PipesModule } from './pipes/pipes.module';
+import { Camera } from '@ionic-native/camera/ngx';
+//import { Camera } from '@awesome-cordova-plugins/camera/ngx';
 
 const firebaseConfig = {
   apiKey: "AIzaSyCfBo2xb0u3L126HrhZ_E9OR1M6xy5fJW8",
@@ -30,7 +32,8 @@ const firebaseConfig = {
     // AngularFireAuthModule,
 
     AppRoutingModule],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, Camera
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
