@@ -10,6 +10,7 @@ import { EncadreDirective } from './directive/encadre.directive';
 import { HttpClientModule } from '@angular/common/http';
 import { PipesModule } from './pipes/pipes.module';
 import { Camera } from '@ionic-native/camera/ngx';
+import { SQLite } from '@ionic-native/sqlite/ngx';
 //import { Camera } from '@awesome-cordova-plugins/camera/ngx';
 
 const firebaseConfig = {
@@ -32,7 +33,7 @@ const firebaseConfig = {
     // AngularFireAuthModule,
 
     AppRoutingModule],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, Camera
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, Camera, SQLite
   ],
   bootstrap: [AppComponent],
 })
