@@ -17,7 +17,6 @@ export class AppComponent {
           .then(() => console.log('Executed SQL'))
           .catch(e => console.log(e));
 
-
       })
       .catch(e => console.log(e));
   }

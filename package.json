@@ -22,6 +22,8 @@
     "@ionic-native/camera": "^5.36.0",
     "@ionic-native/core": "^5.36.0",
     "@ionic-native/sqlite": "^5.36.0",
+    "@ionic-native/sqlite-db-copy": "^5.36.0",
+    "@ionic-native/sqlite-porter": "^5.36.0",
     "@ionic/angular": "^5.5.2",
     "cordova-browser": "6.0.0",
     "firebase": "^8.8.1",
@@ -47,6 +49,7 @@
     "@typescript-eslint/parser": "4.16.1",
     "cordova-android": "^9.1.0",
     "cordova-plugin-camera": "^5.0.3",
+    "cordova-plugin-dbcopy": "^2.1.2",
     "cordova-plugin-device": "^2.0.2",
     "cordova-plugin-ionic-keyboard": "^2.2.0",
     "cordova-plugin-ionic-webview": "^4.2.1",
@@ -68,7 +71,8 @@
     "karma-jasmine-html-reporter": "^1.5.0",
     "protractor": "~7.0.0",
     "ts-node": "~8.3.0",
-    "typescript": "~4.2.4"
+    "typescript": "~4.2.4",
+    "uk.co.workingedge.cordova.plugin.sqliteporter": "^1.1.1"
   },
   "description": "An Ionic project",
   "cordova": {
@@ -82,7 +86,9 @@
       },
       "cordova-plugin-ionic-keyboard": {},
       "cordova-plugin-camera": {},
-      "cordova-sqlite-storage": {}
+      "cordova-sqlite-storage": {},
+      "cordova-plugin-dbcopy": {},
+      "uk.co.workingedge.cordova.plugin.sqliteporter": {}
     },
     "platforms": [
       "android",
