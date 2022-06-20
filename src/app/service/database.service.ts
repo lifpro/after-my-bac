@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { SQLiteObject } from '@ionic-native/sqlite';
-import { SQLite } from '@ionic-native/sqlite/ngx';
+import { SQLiteObject, SQLite } from '@ionic-native/sqlite';
 import { SQLitePorter } from '@ionic-native/sqlite-porter/ngx';
 import { Platform } from '@ionic/angular';
 import { BehaviorSubject, Observable } from 'rxjs';
@@ -49,6 +48,9 @@ export class DatabaseService {
       });
   }
 
+  getDatabaseState() {
+    return this.dbReady.asObservable();
+  }
 
   getEtablissements(): Observable<Etablissement[]> {
     return this.etablissements.asObservable();
