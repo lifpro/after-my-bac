@@ -11,7 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { PipesModule } from './pipes/pipes.module';
 import { Camera } from '@ionic-native/camera/ngx';
 import { SQLitePorter } from '@ionic-native/sqlite-porter/ngx';
-import { SQLiteOriginal } from '@ionic-native/sqlite';
+import { SQLite, SQLiteObject } from '@awesome-cordova-plugins/sqlite/ngx';
 //import { Camera } from '@awesome-cordova-plugins/camera/ngx';
 
 const firebaseConfig = {
@@ -36,7 +36,7 @@ const firebaseConfig = {
     AppRoutingModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     Camera,
-    SQLiteOriginal, SQLitePorter
+    SQLite, SQLitePorter
   ],
   bootstrap: [AppComponent],
 })

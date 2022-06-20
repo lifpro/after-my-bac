@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { SQLiteObject, SQLite } from '@ionic-native/sqlite';
+import { SQLite, SQLiteObject } from '@awesome-cordova-plugins/sqlite/ngx';
 import { SQLitePorter } from '@ionic-native/sqlite-porter/ngx';
 import { Platform } from '@ionic/angular';
 import { BehaviorSubject, Observable } from 'rxjs';
