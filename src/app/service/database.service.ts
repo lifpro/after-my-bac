@@ -4,8 +4,9 @@ import { SQLiteObject } from '@ionic-native/sqlite';
 import { SQLite } from '@ionic-native/sqlite/ngx';
 import { SQLitePorter } from '@ionic-native/sqlite-porter/ngx';
 import { Platform } from '@ionic/angular';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { Etablissement } from '../model/etablissement';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,7 @@ export class DatabaseService {
   dbName = 'ambV1.db';
   private database: SQLiteObject;
   private dbReady: BehaviorSubject<boolean> = new BehaviorSubject(false);
+  etablissements = new BehaviorSubject([]);
   constructor(private sqlite: SQLite,
     private sqlitePorter: SQLitePorter,
     private plt: Platform,
@@ -47,4 +49,51 @@ export class DatabaseService {
       });
   }
 
+
+  getEtablissements(): Observable<Etablissement[]> {
+    return this.etablissements.asObservable();
+  }
+
+  loadEtablissements() {
+    let list: Etablissement[] = [];
+    this.database.executeSql('SELECT * FROM etablissements order by nom', []).then(data => {
+      if (data.rows.length > 0) {
+        for (let i = 0; i < data.rows.length; i++) {
+          list.push(this.dataToEtablissement(data, i));
+        }
+      }
+      this.etablissements.next(list);
+    })
+      .catch(e => {
+        alert("error:" + e)
+      });;
+  }
+  dataToEtablissement(data, i) {
+    return {
+      id: data.rows.item(i).id,
+      nom: data.rows.item(i).nom,
+      serie: data.rows.item(i).serie,
+      ms: data.rows.item(i).ms,
+      ml: data.rows.item(i).ml,
+    };
+  }
+
+  addEtablissement(item: Etablissement) {
+    let data = [item.nom, item.serie, item.ms, item.ml];
+    return this.database.executeSql('INSERT INTO etablissements (nom,serie,ms,ml) VALUES (?,?,?,?)', data).then(data => {
+      this.loadEtablissements();
+    }).catch(e => { });
+  }
+
+  updateEtablissement(item: Etablissement) {
+    let data = [item.nom, item.serie, item.ms, item.ml];
+    return this.database.executeSql(`UPDATE etablissements SET nom = ?,serie = ?,ms = ?,ml = ? WHERE id = ${item.id}`, data).then(data => {
+      this.loadEtablissements();
+    });
+  }
+  deleteEtablissement(id: any) {
+    return this.database.executeSql('DELETE FROM etablissements WHERE id = ?', [id]).then(_ => {
+      this.loadEtablissements();
+    });
+  }
 }

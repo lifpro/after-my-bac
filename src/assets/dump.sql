@@ -1,3 +1,3 @@
-CREATE TABLE "etablissements" ("code"	TEXT,"nom"	TEXT,PRIMARY KEY("code"));
-INSERT or IGNORE INTO etablissements VALUES ('ISTA','TECHNOLAB');
-INSERT or IGNORE INTO etablissements VALUES ('IAM','IAM');
+CREATE TABLE "etablissements" ("id"	INTEGER PRIMARY KEY AUTOINCREMENT,"nom"	TEXT,"serie" TEXT,"ms"	INTEGER,"ml"	INTEGER);
+INSERT or IGNORE INTO etablissements VALUES (1,'TECHNOLAB','TSECO',12,10);
+INSERT or IGNORE INTO etablissements VALUES (2,'IAM','TLL,TAL',12,10);
