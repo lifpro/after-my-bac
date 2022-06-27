@@ -22,6 +22,17 @@ export class EtablissementPage implements OnInit {
   }
 
   ngOnInit() {
+    // this.add();
+  }
+  add() {
+    let e: Etablissement = new Etablissement();
+    e.nom = 'SUP MANAGEMENT';
+    e.serie = 'TLL';
+    this.db.getDatabaseState().subscribe(rdy => {
+      if (rdy) {
+        this.db.addEtablissement(e);
+      }
+    });
   }
   loadList() {
     if (environment.production) {
