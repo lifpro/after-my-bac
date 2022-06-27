@@ -11,7 +11,7 @@ import { Etablissement } from '../model/etablissement';
   providedIn: 'root'
 })
 export class DatabaseService {
-  dbName = 'ambV1.db';
+  dbName = 'ambV2.db';
   private database: SQLiteObject;
   private dbReady: BehaviorSubject<boolean> = new BehaviorSubject(false);
   etablissements = new BehaviorSubject([]);
@@ -30,6 +30,7 @@ export class DatabaseService {
           this.dbReady.next(true);
           // alert('Base de donnees créés')
         }).catch((error: Error) => {
+          // alert("error:" + error)
           console.log('Error on open or create database: ', error);
           return Promise.reject(error.message || error);
         });
@@ -67,7 +68,7 @@ export class DatabaseService {
       this.etablissements.next(list);
     })
       .catch(e => {
-        alert("error:" + e)
+        // alert("error:" + e)
       });;
   }
   dataToEtablissement(data, i) {
