@@ -18,7 +18,7 @@ export class EtablissementPage implements OnInit {
 
   etabs: Etablissement[] = [];
   constructor(private plt: Platform, private db: DatabaseService) {
-    this.loadList();
+    this.loadListFromFB();
   }
 
   ngOnInit() {
@@ -34,7 +34,9 @@ export class EtablissementPage implements OnInit {
       }
     });
   }
-  loadList() {
+  loadListFromFB() {
+  }
+  loadListFromDB() {
     if (environment.production) {
       this.db.getDatabaseState().subscribe(rdy => {
         if (rdy) {

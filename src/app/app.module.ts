@@ -12,27 +12,22 @@ import { PipesModule } from './pipes/pipes.module';
 import { Camera } from '@ionic-native/camera/ngx';
 import { SQLitePorter } from '@ionic-native/sqlite-porter/ngx';
 import { SQLite, SQLiteObject } from '@awesome-cordova-plugins/sqlite/ngx';
-//import { Camera } from '@awesome-cordova-plugins/camera/ngx';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { provideAuth, getAuth } from '@angular/fire/auth';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { provideStorage, getStorage } from '@angular/fire/storage';
 
-const firebaseConfig = {
-  apiKey: "AIzaSyCfBo2xb0u3L126HrhZ_E9OR1M6xy5fJW8",
-  authDomain: "aftermybac.firebaseapp.com",
-  projectId: "aftermybac",
-  storageBucket: "aftermybac.appspot.com",
-  messagingSenderId: "935035845592",
-  appId: "1:935035845592:web:1552fdf6b421a69abf10ad"
-};
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(),
     HttpClientModule,
-    // AngularFireModule.initializeApp(firebaseConfig),
-    // AngularFireDatabaseModule,
-    // AngularFireStorageModule,
-    // AngularFireAuthModule,
-
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore()),
+    provideStorage(() => getStorage()),
     AppRoutingModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     Camera,

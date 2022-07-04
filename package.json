@@ -13,8 +13,10 @@
   },
   "private": true,
   "dependencies": {
+    "-": "0.0.1",
     "@angular/common": "~12.1.1",
     "@angular/core": "~12.1.1",
+    "@angular/fire": "^7.4.1",
     "@angular/forms": "~12.1.1",
     "@angular/platform-browser": "~12.1.1",
     "@angular/platform-browser-dynamic": "~12.1.1",
@@ -27,8 +29,9 @@
     "@ionic-native/sqlite-porter": "^5.36.0",
     "@ionic/angular": "^5.5.2",
     "cordova-browser": "6.0.0",
-    "firebase": "^8.8.1",
+    "firebase": "^9.8.4",
     "rxjs": "~6.6.0",
+    "save": "^2.5.0",
     "tslib": "^2.2.0",
     "zone.js": "~0.11.4"
   },
