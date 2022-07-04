@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActionSheetController } from '@ionic/angular';
+import { ActionSheetController, AlertController, LoadingController } from '@ionic/angular';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { AuthService } from '../service/auth.service';
 import { Router } from '@angular/router';
+import { AvatarService } from '../service/avatar.service';
 @Component({
   selector: 'app-tab4',
   templateUrl: './tab4.page.html',
@@ -15,6 +16,9 @@ export class Tab4Page implements OnInit {
     private camera: Camera,
     private router: Router,
     private auth: AuthService,
+    private avatar: AvatarService,
+    private loadingController: LoadingController,
+    private alertController: AlertController
   ) { }
 
   ngOnInit() {
@@ -56,8 +60,24 @@ export class Tab4Page implements OnInit {
     const base64 = await this.captureImageCamera();
     this.createUploadTask(base64);
   }
-  createUploadTask(file: string): void {
+  async createUploadTask(file: string) {
     this.image = 'data:image/jpg;base64,' + file;
+    if (this.image) {
+      const loading = await this.loadingController.create();
+      await loading.present();
+
+      const result = await this.avatar.uploadImage(this.image);
+      loading.dismiss();
+
+      if (!result) {
+        const alert = await this.alertController.create({
+          header: 'Upload failed',
+          message: 'There was a problem uploading your avatar.',
+          buttons: ['OK'],
+        });
+        await alert.present();
+      }
+    }
   }
   async captureImageGalerie() {
     const options: CameraOptions = {

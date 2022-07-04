@@ -9,27 +9,27 @@ export class FirebaseService {
   constructor(private firestore: Firestore) { }
 
   getEtablissements(): Observable<Etablissement[]> {
-    const EtablissementsRef = collection(this.firestore, 'etablissements');
-    return collectionData(EtablissementsRef, { idField: 'id' }) as Observable<Etablissement[]>;
+    const colRef = collection(this.firestore, 'etablissements');
+    return collectionData(colRef, { idField: 'id' }) as Observable<Etablissement[]>;
   }
 
   getEtablissementById(id): Observable<Etablissement> {
-    const EtablissementDocRef = doc(this.firestore, `etablissements/${id}`);
-    return docData(EtablissementDocRef, { idField: 'id' }) as Observable<Etablissement>;
+    const docRef = doc(this.firestore, `etablissements/${id}`);
+    return docData(docRef, { idField: 'id' }) as Observable<Etablissement>;
   }
 
   addEtablissement(etab: Etablissement) {
-    const EtablissementsRef = collection(this.firestore, 'etablissements');
-    return addDoc(EtablissementsRef, { nom: etab.nom, ml: etab.ml, ms: etab.ms });
+    const colRef = collection(this.firestore, 'etablissements');
+    return addDoc(colRef, { nom: etab.nom, ml: etab.ml, ms: etab.ms });
   }
 
   deleteEtablissement(etab: Etablissement) {
-    const EtablissementDocRef = doc(this.firestore, `etablissements/${etab.id}`);
-    return deleteDoc(EtablissementDocRef);
+    const docRef = doc(this.firestore, `etablissements/${etab.id}`);
+    return deleteDoc(docRef);
   }
 
   updateEtablissement(etab: Etablissement) {
-    const EtablissementDocRef = doc(this.firestore, `etablissements/${etab.id}`);
-    return updateDoc(EtablissementDocRef, { nom: etab.nom, ml: etab.ml, ms: etab.ms });
+    const docRef = doc(this.firestore, `etablissements/${etab.id}`);
+    return updateDoc(docRef, { nom: etab.nom, ml: etab.ml, ms: etab.ms });
   }
 }

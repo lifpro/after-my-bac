@@ -71,7 +71,7 @@ export class EtablissementPage implements OnInit {
           text: 'Cancel',
           role: 'cancel'
         }, {
-          text: 'Add',
+          text: 'Enregistrer',
           handler: res => {
             let e: Etablissement = new Etablissement();
             e.nom = res.nom
