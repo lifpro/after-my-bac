@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActionSheetController } from '@ionic/angular';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+import { AuthService } from '../service/auth.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-tab4',
   templateUrl: './tab4.page.html',
@@ -11,6 +13,8 @@ export class Tab4Page implements OnInit {
   constructor(
     public asc: ActionSheetController,
     private camera: Camera,
+    private router: Router,
+    private auth: AuthService,
   ) { }
 
   ngOnInit() {
@@ -82,5 +86,9 @@ export class Tab4Page implements OnInit {
     };
     return await this.camera.getPicture(options);
   }
+  logout() {
+    this.auth.logout();
+    this.router.navigateByUrl('/', { replaceUrl: true });
 
+  }
 }

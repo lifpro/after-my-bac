@@ -14,6 +14,7 @@ export class AuthService {
 
   async register({ email, password }) {
     try {
+
       const user = await createUserWithEmailAndPassword(
         this.auth,
         email,
@@ -21,6 +22,7 @@ export class AuthService {
       );
       return user;
     } catch (e) {
+      console.log(e)
       return null;
     }
   }
