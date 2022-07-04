@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { Platform } from '@ionic/angular';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { AlertController, Platform } from '@ionic/angular';
 import { environment } from 'src/environments/environment';
 import { Etablissement } from '../model/etablissement';
 import { DatabaseService } from '../service/database.service';
+import { FirebaseService } from '../service/firebase.service';
 
 @Component({
   selector: 'app-etablissement',
@@ -17,7 +18,11 @@ export class EtablissementPage implements OnInit {
   ];
 
   etabs: Etablissement[] = [];
-  constructor(private plt: Platform, private db: DatabaseService) {
+  constructor(private plt: Platform,
+    private db: DatabaseService,
+    private fd: FirebaseService,
+    private cd: ChangeDetectorRef,
+    private alertCtrl: AlertController) {
     this.loadListFromFB();
   }
 
@@ -35,6 +40,49 @@ export class EtablissementPage implements OnInit {
     });
   }
   loadListFromFB() {
+    this.fd.getEtablissements().subscribe(res => {
+      this.etabs = res;
+      this.cd.detectChanges();
+    });
+  }
+  async addEtablissement() {
+    const alert = await this.alertCtrl.create({
+      header: 'Add Etablissement',
+      inputs: [
+        {
+          name: 'nom',
+          placeholder: "Nom de l'établissement",
+          type: 'text'
+        },
+        {
+          name: 'ml',
+          placeholder: 'Moyenne litteraire',
+          type: 'number'
+        }
+        ,
+        {
+          name: 'ms',
+          placeholder: 'Moyenne scientifique',
+          type: 'number'
+        }
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel'
+        }, {
+          text: 'Add',
+          handler: res => {
+            let e: Etablissement = new Etablissement();
+            e.nom = res.nom
+            e.ml = res.ml;
+            e.ms = res.ms;
+            this.fd.addEtablissement(e);
+          }
+        }
+      ]
+    });
+    await alert.present();
   }
   loadListFromDB() {
     if (environment.production) {
@@ -49,7 +97,6 @@ export class EtablissementPage implements OnInit {
     } else {
 
     }
-
 
   }
 

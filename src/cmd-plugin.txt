@@ -80,7 +80,10 @@ npm install @ionic-native/unique-device-id
 ionic cordova plugin add cordova-plugin-uid
 npm install @ionic-native/uid
 
-#Firebase | https://devdactic.com/ionic-firebase-auth-upload/
+#Firebase | 
+https://devdactic.com/ionic-firebase-auth-upload/
+https://devdactic.com/ionic-firebase-angularfire-7/
+
 npm install firebase @angular/fire -- save
 
 #Firebase Cloud Messaging (FCM)
